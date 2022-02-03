@@ -8,7 +8,6 @@ const classes = {
   addbutton:'m-1 text-white bg-blue-500 hover:bg-blue-600 font-medium rounded-lg text-sm px-4 py-2.5 text-center inline-flex items-center',
   btngroup:'flex justify-center',
   addgroup:'my-1 mx-2 text-white bg-stone-500 hover:bg-stone-600 font-medium rounded-lg text-sm px-4 py-2.5 text-center inline-flex items-center',
-  andbutton:'m-1 text-white bg-blue-500 hover:bg-blue-600 font-medium rounded-lg text-sm px-4 py-2.5 text-center inline-flex items-center',
 }
 
 function App() {

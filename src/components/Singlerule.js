@@ -1,5 +1,6 @@
 import { useEffect, useState } from 'react';
 import Dropdown from './Dropdown';
+import TabButtons from './TabButtons';
 
 const classes = {
     wrapper: 'p-2 bg-slate-800 h-auto flex justify-end',
@@ -11,8 +12,6 @@ const classes = {
     input:'text-white bg-slate-600 hover:bg-slate-500 font-medium rounded-lg text-sm px-4 py-2.5',
     btngroup:'flex justify-center',
     addgroup:'my-1 mx-2 text-white bg-stone-500 hover:bg-stone-600 font-medium rounded-lg text-sm px-4 py-2.5 text-center inline-flex items-center',
-    andbutton:'m-1 text-white bg-blue-500 hover:bg-blue-600 font-medium rounded-lg text-sm px-4 py-2.5 text-center inline-flex items-center',
-    orbutton:'m-1 text-white bg-blue-500 hover:bg-blue-600 font-medium rounded-lg text-sm px-4 py-2.5 text-center inline-flex items-center',
     inputitem:'mt-1 mb-1 flex'
 }
   
@@ -88,8 +87,7 @@ function SingleRule(props) {
             query+=params.value;
           else if(params.field===FIELDS[6])
             query+=params.value;
-          else
-          {
+          else {
             query+="\""
             query+=params.value;
             query+="\""
@@ -127,7 +125,7 @@ function SingleRule(props) {
       else if(entry.field==="Time Period")
         inputType="date"
       
-        return (
+      return (
         <li key={i} className={classes.inputitem}>
           <input type={inputType} value={entry.value} placeholder='Value' className={classes.input} onChange={(e)=>handleInputChange(e,i)} required></input>
           <button onClick={() => handleFieldDelete(i)}>
@@ -164,10 +162,7 @@ function SingleRule(props) {
               </div>
   
               <div>
-                <div className="flex">
-                  <button className={classes.andbutton} onClick={()=>setCombine(0)}>AND</button>
-                  <button className={classes.orbutton} onClick={()=>setCombine(1)}>OR</button>
-                </div>
+                <TabButtons combine={combine} setCombine={setCombine}/>
                 <button className={classes.addbutton} onClick={addFilter}>Add Field</button>
               </div>
           </div>
