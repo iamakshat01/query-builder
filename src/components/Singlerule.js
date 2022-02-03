@@ -23,6 +23,7 @@ function SingleRule(props) {
     const [rules,setRules] = useState([{field:'Select Field',operator:'Select Condition',value:''}]);
     const [combine,setCombine] = useState(0); // 0 for AND, 1 for OR
     
+    // responds to submit button in parent
     useEffect(()=>{
         if(props.refresh!==0)
         handleSubmit();
@@ -60,6 +61,7 @@ function SingleRule(props) {
       setRules(newRules);
     }
 
+    // generates query
     function handleSubmit() {
       let condition="AND";
       if(combine===1)
