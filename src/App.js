@@ -13,7 +13,7 @@ const classes = {
 function App() {
 
   const [query,setQuery] = useState("");
-  const [refresh,setRefresh] = useState(0); // submit token for child components
+  const [refresh,setRefresh] = useState(0); // token for query components to build query string
   function handleSubmit() {
     setRefresh(refresh => refresh+1);
   }
