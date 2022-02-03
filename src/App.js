@@ -25,7 +25,7 @@ function App() {
       </div>
       <SingleRule query={query} setQuery={setQuery} refresh={refresh}/>
       <div className={classes.btngroup}>
-          <button className={classes.addgroup}>Add Group</button>
+          {/* <button className={classes.addgroup}>Add Group</button> */}
           <button className={classes.addbutton} onClick={handleSubmit}>Submit</button>
       </div>
     </div>

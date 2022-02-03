@@ -12,7 +12,8 @@ const classes = {
     btngroup:'flex justify-center',
     addgroup:'my-1 mx-2 text-white bg-stone-500 hover:bg-stone-600 font-medium rounded-lg text-sm px-4 py-2.5 text-center inline-flex items-center',
     andbutton:'m-1 text-white bg-blue-500 hover:bg-blue-600 font-medium rounded-lg text-sm px-4 py-2.5 text-center inline-flex items-center',
-    orbutton:'m-1 text-white bg-blue-500 hover:bg-blue-600 font-medium rounded-lg text-sm px-4 py-2.5 text-center inline-flex items-center'
+    orbutton:'m-1 text-white bg-blue-500 hover:bg-blue-600 font-medium rounded-lg text-sm px-4 py-2.5 text-center inline-flex items-center',
+    inputitem:'mt-1 mb-1 flex'
 }
   
 const FIELDS = ['Theme','Sub-theme','Reason','Language','Source','Rating','Time Period','Customer ID' ];
@@ -47,13 +48,19 @@ function SingleRule(props) {
       })
       setRules(newRules);
     }
-  
+    
     function handleInputChange(e,index) {
       const newRules=[...rules];
       newRules[index].value=e.target.value;
       setRules(newRules);
     }
-  
+    
+    function handleFieldDelete(index) {
+      const newRules=[...rules];
+      newRules.splice(index,1);
+      setRules(newRules);
+    }
+
     function handleSubmit() {
       let condition="AND";
       if(combine===1)
@@ -121,8 +128,13 @@ function SingleRule(props) {
         inputType="date"
       
         return (
-        <li key={i} className={classes.fielditem}>
+        <li key={i} className={classes.inputitem}>
           <input type={inputType} value={entry.value} placeholder='Value' className={classes.input} onChange={(e)=>handleInputChange(e,i)} required></input>
+          <button onClick={() => handleFieldDelete(i)}>
+            <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6 text-white my-1 mx-1" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 7l-.867 12.142A2 2 0 0116.138 21H7.862a2 2 0 01-1.995-1.858L5 7m5 4v6m4-6v6m1-10V4a1 1 0 00-1-1h-4a1 1 0 00-1 1v3M4 7h16" />
+            </svg>
+          </button>
         </li>
       )
     })
