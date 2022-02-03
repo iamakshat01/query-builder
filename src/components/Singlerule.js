@@ -98,7 +98,7 @@ function SingleRule(props) {
           return query;
       }).join(joiner)
   
-      console.log(querystring,queryObject);
+      console.log(queryObject);
       props.setQuery(querystring);
     }
   
